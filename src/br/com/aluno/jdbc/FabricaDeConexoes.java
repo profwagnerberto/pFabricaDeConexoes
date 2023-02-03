@@ -6,17 +6,13 @@ import java.sql.SQLException;
 
 public class FabricaDeConexoes {
   
-  public Connection pegarConexao() {
+  public static Connection pegarConexao() throws Exception {
     String protocolo = "jdbc:mysql://";
     String servidor = "localhost";
     String BD = "bdacademico";
     String usuario = "uacademico";
     String senha = "#Uacad10";
 
-    try {
-      return DriverManager.getConnection(protocolo+servidor+"/"+BD, usuario, senha);
-    } catch (SQLException e) {
-      throw new RuntimeException(e);
-    }
+    return DriverManager.getConnection(protocolo+servidor+"/"+BD, usuario, senha);
   }
 }

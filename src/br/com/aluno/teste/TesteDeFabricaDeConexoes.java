@@ -7,13 +7,18 @@ import br.com.aluno.jdbc.FabricaDeConexoes;
 
 public class TesteDeFabricaDeConexoes {
 
-  public static void main(String[] args) throws SQLException {
-    Connection conexao1 = new FabricaDeConexoes().pegarConexao();
+  public static void main(String[] args) {
+    try {
+      Connection conexao1 = FabricaDeConexoes.pegarConexao();
 
-    System.out.println("conexao1 realizada");
+      System.out.println("conexao1 realizada");
 
-    conexao1.close();
-
+      conexao1.close();
+    } catch (Exception e) {
+      System.err.println("Erro no banco de dados: " + "\n" +
+          e.getMessage() + "\n" +
+          e.getClass() );
+//        e.printStackTrace();
+    }
   }
-
 }
