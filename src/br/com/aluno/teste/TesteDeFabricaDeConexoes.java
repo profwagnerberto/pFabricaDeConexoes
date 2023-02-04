@@ -13,7 +13,7 @@ public class TesteDeFabricaDeConexoes {
 
       System.out.println("conexao1 realizada");
 
-      conexao1.close();
+      FabricaDeConexoes.encerrarRecursosBD(conexao1);
     } catch (Exception e) {
       System.err.println("Erro no banco de dados: " + "\n" +
           e.getMessage() + "\n" +
